@@ -1,6 +1,7 @@
 
 // Global Variables
-const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const date = new Date();
 const div = document.getElementById('render');
 
@@ -102,3 +103,42 @@ const getLeapYears = (year) => {
     return "Ordinary year";
 }
 
+// 7. Write a JavaScript program to find 1st January is being a Sunday between 2014 and 2050
+
+const firstJanuaryOnSunday = (date1 = 2014, date2 = 2050) => {
+    const diff = Math.abs(date1 - date2);
+    const arr = [];
+    for(let i=0; i <= diff; i++) {
+        const date = `1 jan ${date1 + i}`;
+        const day = new Date(date).getDay();
+        if (days[day] == "Sunday") {
+            arr.push(date1 + i);
+        }
+    }
+    return arr;
+}
+
+// 8. Write a JavaScript program where the program takes a random integer between 1 to 10, the user is then prompted to input a guess number. 
+// If the user input matches with guess number, the program will display a message "Good Work" otherwise display a message "Not matched". 
+
+const guessNumber = (guess= 2) => {
+    const guessNumber = Math.floor(Math.random() * 10);
+    if (guessNumber === guess) {
+        return "Good work";
+    }
+    return "Not matched";
+}
+
+// 9. Write a JavaScript program to calculate days left until next Christmas.
+// const daysLeftChristmas = () => {
+//     const currentYear = date.getFullYear();
+//     const totalDays = ((currentYear % 4) === 0) ? 366 : 365;
+//     const currentMonth = date.getMonth();
+//     const remaningMonth = 12 - currentMonth;
+//     let output = 0;
+//     for(let i=0; i < remaningMonth; i++) {
+//         let days = new Date(`${currentYear} ${months[currentMonth + 1]}`).getUTCDate() - 1;
+//         // const thisMonthLeftDays = 
+//         // output = totalDays - 
+//     }
+// }
