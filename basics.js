@@ -130,15 +130,45 @@ const guessNumber = (guess= 2) => {
 }
 
 // 9. Write a JavaScript program to calculate days left until next Christmas.
-// const daysLeftChristmas = () => {
-//     const currentYear = date.getFullYear();
-//     const totalDays = ((currentYear % 4) === 0) ? 366 : 365;
-//     const currentMonth = date.getMonth();
-//     const remaningMonth = 12 - currentMonth;
-//     let output = 0;
-//     for(let i=0; i < remaningMonth; i++) {
-//         let days = new Date(`${currentYear} ${months[currentMonth + 1]}`).getUTCDate() - 1;
-//         // const thisMonthLeftDays = 
-//         // output = totalDays - 
-//     }
-// }
+
+const daysLeftChristmas = () => {
+    const currentYear = date.getFullYear()
+    const diff = Math.abs(new Date(`${currentYear} Dec 25`) - date);
+    const remaningDays = diff / (1000 * 60 * 60 * 24);
+    return Math.ceil(remaningDays);
+}
+
+// 10. Write a JavaScript program to calculate multiplication and division of two numbers (input from user).
+// 12. Write a JavaScript program to get the website URL (loading page).
+const getURL = () => {
+    const url = window.location.href;
+    return `You URL = ${url}`;
+}
+
+// 13. Write a JavaScript exercise to create a variable using a user-defined name.
+// 15. Write a JavaScript program to get the difference between a given number and 13, if the number is greater than 13 return double 
+// the absolute difference.
+
+// Algorithm
+function abc(str1="aabc", str2="aaab"){
+    let arr = [];
+    for(let i=0; i < str1.length; i++) {
+        let character = str1.charAt(i);
+        let index = str2.indexOf(character);
+        if (index >= 0) {
+            if (arr[index]) {
+                arr[index + 1] = character;    
+            } else {
+                arr[index] = character;
+            }
+        }
+    }
+    const newArr = arr.join().replaceAll(",", "");
+    if (newArr === str1) {
+        return "Success";
+    }
+    return "Fail";
+}
+
+// 15. Write a JavaScript program to get the difference between a given number and 13,
+//  if the number is greater than 13 return double the absolute difference.
