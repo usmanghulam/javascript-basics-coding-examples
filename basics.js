@@ -399,5 +399,88 @@ const sameNumber = (n1, n2, n3) => {
     else return 20;
 }
 
-// 42. Write a JavaScript program to check whether three given numbers are increasing in strict mode or in soft mode.  Go to the editor
-// Note: Strict mode -> 10, 15, 31 : Soft mode -> 24, 22, 31 or 22, 22, 31
+// 44. Write a JavaScript program to check from three given integers that whether a number is greater than or equal to 20 and less than one of the others.
+
+const largerNumber1 = (...rest) => {
+    const [a, b, c] = rest;
+    if (a >= 20 && a < b && a < c) return true;
+    else if (b >= 20 && b < a && b < c) return true;
+    else if (c >= 20 && c < a && c < b) return true;
+    else return false;
+}
+
+// 45. Write a JavaScript program to check two given integer values and return true if one of the number is 15 or if their sum or difference is 15. 
+const findDifference1 = (...rest) => {
+    const [a,b] = rest;
+    if (a === 15 || b === 15 || ((a + b) === 15)) return true;
+    else return false;
+}
+
+// 46. Write a JavaScript program to check two given non-negative integers that whether one of the number (not both) is multiple of 7 or 11.
+const Multipleof711 = (n1, n2) => {
+    if ((n1 % 7 === 0 || n1 % 11 === 0) || (n2 % 7 === 0 || n2 % 11 === 0)) return true;
+    else false;
+}
+
+// 48. Write a JavaScript program to reverse a given string.
+const reverseString = str => {
+    // const arr = str.split("");
+    // return arr.reverse().join().replaceAll(",","");
+    let newString = "";
+    for(let i = str.length - 1; i >= 0; i --) {
+        newString = newString + str.charAt(i);
+    }
+    return newString;
+}
+
+// 50. Write a JavaScript program to capitalize the first letter of each word of a given string.
+
+const capitalizeString = str => {
+    const newString = str.split(" ");
+    let newReturnString = "";
+    for(let singleString of newString) {
+        if (singleString !== undefined) {
+            newReturnString = newReturnString + " " + (singleString.charAt(0).toUpperCase() + singleString.slice(1));
+        }
+    }
+    return newReturnString;
+}
+
+// 52. Write a JavaScript program to convert the letters of a given string in alphabetical order.
+
+const alphabeticalOrder = str => {
+    return str.split("").sort().join().replaceAll(",","");
+}
+
+// 53. Write a JavaScript program to check whether the characters a and b are separated by exactly 3 places anywhere (at least once) in a given string.
+
+const ABseperated = str => {
+    const arr = str.split("");
+    const indexes = [];
+    for(let index in arr) {
+        if (arr[index] === "a") {
+            indexes.push(index);
+        }
+    }
+    for(let index of indexes) {
+        if (arr[Number(index) + 4] === "b") {
+            return true;
+        }
+    }
+    return false;
+}
+
+// 54. Write a JavaScript program to count the number of vowels in a given string.  Go to the editor
+
+const FindVovels = str => {
+    const VOVELS = ['A', "E", "I", "O", "U"];
+    const vovels = ['a', 'e', 'i', 'o', 'u'];
+    const string = str.split();
+    let count = 0;
+    for(let i=0; i < str.length; i++) {
+        if (VOVELS.includes(str.charAt(i)) || vovels.includes(str.charAt(i))) {
+            count ++;
+        }
+    }
+    return count;
+}
