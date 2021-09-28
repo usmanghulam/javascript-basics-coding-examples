@@ -285,3 +285,119 @@ function stringFun(str="usmanghulam") {
 // 30. Write a JavaScript program to check whether a string "Script" presents at 5th (index 4) position in a given string, if "Script" 
 // presents in the string return the string without "Script" otherwise return the original one. 
 
+const checkScript = str => {
+    if (!str.includes("Script")) return str;
+    if (str.indexOf("Script") === 5) {
+        return str.replace("Script", "");
+    }
+    return str;
+}
+
+// 31. Write a JavaScript program to find the largest of three given integers.  Go to the editor
+
+const findLargest = (...rest) => {
+    let largerNumber = 0;
+    for(let i=0; i< rest.length; i++) {
+        if (largerNumber < rest[i]) {
+            largerNumber = rest[i];
+        }
+    }
+    return largerNumber;
+}
+
+// 33. Write a JavaScript program to check whether two numbers are in range 40..60 
+// or in the range 70..100 inclusive.  Go to the editor
+
+// 35. Write a program to check whether a specified character exists within the 2nd to 4th position 
+// in a given string.  Go to the editor
+
+const checkStringChar = (string, char) => {
+    if (string.charAt(1) === char && string.charAt(3) === char) {
+        return true;
+    }
+    return false;
+}
+
+// 36. Write a JavaScript program to check whether the last digit of the three given 
+// positive integers is same.  Go to the editor
+
+const lastthreeDigit = (n1, n2, n3) => {
+    let number1 = n1.toString(); number2 = n2.toString(); number3 = n3.toString();
+    if (number1.charAt(number1.length -1) === number2.charAt(number2.length - 1)
+    && number2.charAt(number2.length -1) === number3.charAt(number3.length - 1)) {
+        return true;
+    }
+    return false;
+}
+
+// 37. Write a JavaScript program to create new string with first 3 characters are in lower case from 
+// a given string. If the string length is less than 3 convert all the characters in upper case.
+
+const createNewString = (str) => {
+    if (str.length < 3) {
+        return str.toUpperCase();
+    }
+    let remaningStr = str.substring(3);
+    let threeChar = str.substring(0,3);
+    return `${threeChar.toLowerCase()}${remaningStr}`;
+}
+
+// 38. Write a JavaScript program to check the total marks of a student in various examinations. 
+// The student will get A+ grade if the total marks are in the range 89..100 inclusive, if the examination 
+// is "Final-exam." the student will get A+ grade and total 
+// marks must be greater than or equal to 90. Return true if the student get A+ grade or false otherwise
+
+// 39. Write a JavaScript program to compute the sum of the two given integers, If the sum is in the range 
+// 50..80 return 65 other wise return 80.
+
+
+// Write a function that accepts a positive integer range and, for each increment in the range, prints:
+// - "Fizz" if a multiple of 3
+// - "Buzz" if a multiple of 5
+// - "Bazz" after consecutive Fizzes/Buzzes.
+// - The integer itself otherwise.
+// Example:
+// for f(12,16), the output is "Fizz 13 14 FizzBuzz Bazz".
+// for f(4,11), the output is “4 Buzz Fizz Bazz 8 Fizz Buzz Bazz”.
+
+const BuzzFizz = (n1, n2) => {
+    const arr = [];
+    const range = Math.abs(n1 - n2);
+    let startingNumber = n1 < n2 ? n1 : n2;
+    for (let i = 0; i <= range; i++) {
+      if (startingNumber % 3 === 0) {
+        arr.push("Fizz");
+      } else if (startingNumber % 5 === 0) {
+        arr.push("Buzz");
+      } else {
+        arr.push(startingNumber);
+      }
+      startingNumber = startingNumber + 1;
+    }
+    return arr.join().replaceAll(",", "");
+  };
+  
+//   39. Write a JavaScript program to compute the sum of the two given integers, If the sum is in the range 50..80 return 65 other wise return 80.
+
+const SumTwoInteger = (n1, n2) => {
+    const sum = n1 + n2;
+    if (sum >=50 && sum <=80) return 65
+    else return 80;
+}
+
+// 40. Write a JavaScript program to check from two given integers whether one of them is 8 or their sum or difference is 8.  Go to the editor
+
+const findDifference = (n1, n2) => {
+    if ((n1 === 8 || n2 === 8) || ((n1 + n2) === 8) || (Math.abs(n1 - n2) === 8)) return true;
+    else false;
+}
+
+// 41. Write a JavaScript program to check three given numbers, if the three numbers are same return 30 otherwise return 20 and if two numbers are same return 40.
+const sameNumber = (n1, n2, n3) => {
+    if (n1 === n2 && n2 === n3) return 30;
+    else if (n1 === n2 || n2 === n3) return 40;
+    else return 20;
+}
+
+// 42. Write a JavaScript program to check whether three given numbers are increasing in strict mode or in soft mode.  Go to the editor
+// Note: Strict mode -> 10, 15, 31 : Soft mode -> 24, 22, 31 or 22, 22, 31
