@@ -508,5 +508,34 @@ const CopiesString = (str, numberOfCopies) => {
 // The length of the given string must be 3 and above.  Go to the editor
 
 const ModifiedString = str => {
-    
+    if (str.length < 3) return false;
+    const newString = str.substring(str.length - 3, str.length);
+    let returnString = "";
+    for (let i =0; i< 4; i ++) {
+        returnString += newString;
+    }
+    return returnString;
 }
+
+// const DIfferenceBtwVarLet = () => {
+//     let div1 = document.getElementById('div1');
+//     let div2 = document.getElementById('div2');
+//     if (div1.style.color === "black") {
+//         div1.style.color === "blue"
+//     } else {
+//         div1.style.color === "black"
+//     }
+// }
+// const btn = document.createElement('button');
+// const div1 = document.createElement('div');
+// div1.setAttribute("id", "div1");
+// div1.style.color = "black";
+// const div2 = document.createElement("div");
+// div2.setAttribute("id", "div2")
+// div2.style.color = "blue";
+
+// btn.innerText = "Click Me";
+// btn.addEventListener('click', DIfferenceBtwVarLet)
+// div.appendChild(btn);
+// div.appendChild(div1);
+// div.appendChild(div2);
