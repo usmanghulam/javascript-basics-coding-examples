@@ -484,3 +484,29 @@ const FindVovels = str => {
     }
     return count;
 }
+
+// 56. Write a JavaScript program to divide two positive numbers and return a string with properly formatted commas.  Go to the editor
+const FormatedCommas = (n1, n2) => {
+    const arrString = (Math.round(n1 / n2)).toString().split("");
+    return arrString.join();
+}
+
+// 57. Write a JavaScript program to create a new string of specified copies (positive number) of a given string.  Go to the editor
+
+const CopiesString = (str, numberOfCopies) => {
+    let copies = "";
+    if (numberOfCopies > 0) {
+        for (let i=0; i < numberOfCopies; i++) {
+            copies = copies + str;
+        }
+    }
+    else return false;
+    return copies;
+}
+
+// 58. Write a JavaScript program to create a new string of 4 copies of the last 3 characters of a given original string. 
+// The length of the given string must be 3 and above.  Go to the editor
+
+const ModifiedString = str => {
+    
+}
