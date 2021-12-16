@@ -22,6 +22,7 @@ const months = [
   "Nov",
   "Dec",
 ];
+const alphabeticCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 const date = new Date();
 const div = document.getElementById("render");
 
@@ -760,3 +761,159 @@ const sum = (...rest) => {
 //   } 
 // };
 // console.log(nextListItem());
+
+// console.log("0 || 1 = "+(0 || 1));
+// console.log("1 || 2 = "+(1 || 2));
+// console.log("0 && 1 = "+(0 && 1));
+// console.log("1 && 2 = "+(1 && 2));
+
+// What will be the output when the following code is executed? Explain. console.log(false == '0') console.log(false === '0') 
+
+// var a={}, b={key:'b'}, c={key:'c'}; 
+// a[b]=123; 
+// a[c]=456; 
+// console.log(a[b]);
+
+// console.log((function f(n){
+//   return ((n > 1) ? n * f(n-1) : n);
+// })(10));
+
+// // 10 * 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9
+
+// (function(x) { 
+//   return (function(y) { 
+//     console.log(x);
+//   })(2) 
+// })(1);
+
+// var hero = { 
+//   _name: 'John Doe', 
+//   getSecretIdentity: function (){ 
+//     return this._name; 
+//   } 
+// }; 
+// var stoleSecretIdentity = hero.getSecretIdentity; 
+// console.log(stoleSecretIdentity()); // undefined
+// console.log(hero.getSecretIdentity()); // John Doe
+
+// not answered
+// Create a function that, given a DOM Element on the page, will visit the element itself and all of its descendents (not just its immediate children). For each element visited, the function should pass that element to a provided callback function. The arguments to the function should be:
+// a DOM element
+// a callback function (that takes a DOM element as its argument)
+
+// var length = 10; 
+// function fn() { 
+//   console.log(this.length); 
+// } 
+// var obj = { 
+//   length: 5, 
+//   method: function(fn) { 
+//     fn();
+//     arguments[0](); 
+//   } 
+// }; 
+// obj.method(fn, 1);
+
+// (function () { 
+//   try { 
+//     throw new Error(); 
+//   } 
+//   catch (x) { 
+//     var x = 1, y = 2; 
+//     console.log(x); 
+//   } 
+//   console.log(x);
+//   console.log(y);
+// })();
+
+// var x = 21; 
+// var girl = function () { 
+//   console.log(x); 
+//   var x = 20;
+// }; 
+// girl ();
+
+// for (let i = 0; i < 5; i++) { 
+//   setTimeout(function() { 
+//     console.log(i); 
+//   }, i * 1000 ); 
+// }
+
+// for (var i = 0; i < 5; i++) { 
+//   setTimeout(function() { 
+//     console.log(i); 
+//   }, i * 1000 ); 
+// }
+
+// var b = 1; 
+// function outer(){ 
+//   var b = 2;
+//   function inner(){
+//     console.log({b}) 
+//     b++;
+//     console.log({b}); 
+//     var b = 3; 
+//     console.log(b) 
+//   } 
+//   inner(); 
+// } 
+// outer();
+
+// for (var i = 0; i < 5; i++) { 
+//   function sum() {
+//     var j=i;
+//     setTimeout(function() {
+//       console.log(j+1)
+//     },10);    
+//   }
+// sum()
+// }
+
+const reverseNumber = num => {
+  return num.toString().split('').reverse().join().replaceAll(',','');
+}
+
+// 2. Write a JavaScript function that checks whether a passed string is palindrome or not? Go to the editor
+// A palindrome is word, phrase, or sequence that reads the same backward as forward, e.g., madam or nurses run.
+
+const palindrome = word => {
+  if (typeof word !== "string") return "Please enter a string";
+  const reverseWord = word.split('').reverse().join().replaceAll(',', '');
+  if (word === reverseWord) return "palindrome Word";
+  return "Not a palindrome Word";
+}
+
+// 4. Write a JavaScript function that returns a passed string with letters in alphabetical order. Go to the editor
+// Example string : 'webmaster'
+// Expected Output : 'abeemrstw'
+
+const stringAlphabeticOrder = str => {
+  return str.split('').sort().join().replaceAll(',', '');
+}
+
+// 5. Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word of the string in upper case. Go to the editor
+// Example string : 'the quick brown fox'
+// Expected Output : 'The Quick Brown Fox '
+
+const convertFirstChar = str => {
+  const arr = str.split(' ');
+  return arr.map(char => {
+    const firstChar = char.charAt(0).toUpperCase();
+    return `${firstChar}${char.substring(1)}` 
+  }).join().replaceAll(',', ' ');
+}
+
+// 6. Write a JavaScript function that accepts a string as a parameter and find the longest word within the string. Go to the editor
+// Example string : 'Web Development Tutorial'
+// Expected Output : 'Development'
+
+const longestChar = str => {
+  const arr = str.split(' ');
+  let logestCharacter = "";
+  arr.forEach(char => {
+    if (char.length >= logestCharacter.length) {
+      logestCharacter = char;
+    }
+  });
+  return logestCharacter;
+}
