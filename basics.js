@@ -917,3 +917,78 @@ const longestChar = str => {
   });
   return logestCharacter;
 }
+
+const generateRandomPassword = (str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789") => {
+  const random = Math.floor(Math.random() * 10);
+  const randomNumber = random < 5 ? 5 : random;
+  const length = str.length;
+  const arr = str.split('');
+  const pass = [];
+  for (let i = 0; i < randomNumber; i ++) {
+    const randomNumber = Math.floor(Math.random() * length);
+    pass.push(arr[randomNumber]);
+  }
+  return pass.join().replaceAll(',','');
+}
+
+const countCharacter = (str, char) => {
+  let obj = {};
+  for (let i = 0; i < str.length; i++) {
+    if (obj[str.charAt(i)]) {
+      obj[str.charAt(i)] = obj[str.charAt(i)] + 1;
+    } 
+    else {
+      obj[str.charAt(i)] = 1;
+    }
+  }
+  return obj[char] || 0;
+}
+
+const notRepeatedCharacters = str => {
+  const obj = {};
+  for (let i = 0; i < str.length; i++) {
+    if (obj[str.charAt(i)]) {
+      obj[str.charAt(i)] = obj[str.charAt(i)] + 1;
+    } 
+    else {
+      obj[str.charAt(i)] = 1;
+    }
+  }
+  const notRepeatedCharacters = {};
+  for (let key in obj) {
+    if (obj[key] === 1) {
+      notRepeatedCharacters[key] = 1
+    } 
+  }
+  return notRepeatedCharacters;
+}
+// Solution 1
+const bubbleSort = (arr = [1,4,3,2, 23,23231,23232323]) => {
+  const sort = [];
+  for(let i = 0; i < arr.length; i++) {
+    const number = arr[i];
+    sort[number] = arr[i];
+  }
+  return sort.filter(val => val);
+}
+
+const newArr = [];
+const multipleOfArray = (arr = [1, 2, 3, 4, 5], start = 1) => {
+  let num = 1;
+  for (let i = 0; i < arr.length; i++) {
+    if (i !== start - 1) {
+      num = num * arr[i];
+    }
+  }
+  newArr.push(num);
+  if (newArr.length !== arr.length) multiple(arr, (start = start + 1));
+};
+
+const bubbleSort1 = (originalArr = [1,4,3,2]) => {
+  const arr = originalArr.slice();
+  for (let i = 0; i < originalArr.length; i ++) {
+
+  }
+  return arr;
+}
+console.log(bubbleSort1())
