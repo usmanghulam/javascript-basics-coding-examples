@@ -231,3 +231,36 @@ const findLongestNumber = str => {
     }
     return string[index];
 }
+
+let val = 1;
+const findFictorial = n => {
+    if (n === 0) return;
+    val = val * n;
+    findFictorial(n - 1);
+}
+
+// Write a JavaScript program to get the integers in range (x, y)
+
+const IntegerArr = [];
+const findTheInteger = (s, e) => {
+    if (s === e - 1) return;
+    let start = s + 1;
+    IntegerArr.push(start);
+    findTheInteger(start, e);
+}
+
+// Write a JavaScript program to compute the sum of an array of integers.
+// Example : var array = [1, 2, 3, 4, 5, 6]
+
+let sum = 0;
+const computeSumOfArr = (arr, val) => {
+    if ((val) !== arr.length) {
+        sum = sum + arr[val]
+        computeSumOfArr([1, 2, 3, 4, 5, 6], val + 1)
+    }
+    return sum;
+}
+
+// Write a JavaScript program to compute the exponent of a number.
+// Note : The exponent of a number says how many times the base number is used as a factor.
+// 82 = 8 x 8 = 64. Here 8 is the base and 2 is the exponent.
