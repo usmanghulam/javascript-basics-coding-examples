@@ -264,3 +264,43 @@ const computeSumOfArr = (arr, val) => {
 // Write a JavaScript program to compute the exponent of a number.
 // Note : The exponent of a number says how many times the base number is used as a factor.
 // 82 = 8 x 8 = 64. Here 8 is the base and 2 is the exponent.
+
+const array = [2,3,6,4, 7];
+const find = (a) => {
+  const length = a.length;
+  const arr = a.slice();
+  let value = 0;
+  let usman = 0;
+  for(let i=0; i < length; i++) {
+    const isOdd = arr[i] % 2 !== 0;
+    if (isOdd && (i+1) !== length) {
+      const nextValueIsEven = arr[i + 1] % 2 === 0; 
+      if (nextValueIsEven) {
+        // Replace
+        const odd = arr[i];
+        const even = arr[i + 1];
+        arr[i] = even;
+        arr[i + 1] = odd;
+        value+=1;
+        if (value === 2) {
+          value =0;
+          usman+=1;
+        }
+      }
+      else {
+        // find Next Even and Replace
+        const number = arr.slice(i + 1).find(n => n % 2 ===0);
+        const index = arr.indexOf(number);
+        const current = arr[i];
+        const temp = arr[index];
+        arr[i] = temp;
+        arr[index] = current;
+        if (value === 2) {
+          value =0;
+          usman+=1;
+        }
+      }
+    }
+  }
+  console.log(arr.filter(val => val), usman);
+};

@@ -22,7 +22,34 @@ const months = [
   "Nov",
   "Dec",
 ];
-const alphabeticCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+const alphabeticCharacters = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
 const date = new Date();
 const div = document.getElementById("render");
 
@@ -666,48 +693,50 @@ let arr = [];
 // })
 
 // Q2: Given a string, reverse each word in the sentence
-const reversetEachStringChar = (str="Hi Myself Usman from Islamabad, And I'm a Full Stack Developer thanks!") => {
-  const stringArray = str.split(' ');
+const reversetEachStringChar = (
+  str = "Hi Myself Usman from Islamabad, And I'm a Full Stack Developer thanks!"
+) => {
+  const stringArray = str.split(" ");
   const reverseArray = [];
-  stringArray.forEach(str => {
-    reverseArray.push(str.split('').reverse().join().replaceAll(',', ''));
+  stringArray.forEach((str) => {
+    reverseArray.push(str.split("").reverse().join().replaceAll(",", ""));
   });
   return reverseArray;
-}
+};
 
 // var addSix = createBase(6);
 // addSix(10); // returns 16
 // addSix(21); // returns 27
 
-const createBase = number => {
-  return function(N) {
+const createBase = (number) => {
+  return function (N) {
     return number * N;
-  }
-}
+  };
+};
 
 const addSix = createBase(6);
 
 var myObject = {
   foo: "bar",
-  func: function(){
+  func: function () {
     var self = this;
     console.log("outer func: this.foo=" + this.foo); //bar
     console.log("outer func: self.foo = " + self.foo); //bar
     (function () {
       console.log("inner func: this.foo = " + this.foo); //undefined
-    })()
-  }
-}
+    })();
+  },
+};
 
-// (function() { 
-//   console.log(1); 
+// (function() {
+//   console.log(1);
 //   setTimeout(function(){
 //     console.log(2)
-//   }, 1000); 
-//   setTimeout(function(){ 
-//     console.log(3) 
-//   }, 0); 
-//   console.log(4); 
+//   }, 1000);
+//   setTimeout(function(){
+//     console.log(3)
+//   }, 0);
+//   console.log(4);
 // })();
 
 const sum = (...rest) => {
@@ -717,21 +746,21 @@ const sum = (...rest) => {
   const [a] = rest;
   return (b) => {
     return a + b;
-  }
-}
+  };
+};
 
-// for (var i = 0; i < 5; i++) { 
-//   var btn = document.createElement('button'); 
-//   btn.appendChild(document.createTextNode('Button ' + i)); 
-//   btn.addEventListener('click', function(){ 
-//     console.log(i); 
-//   }); 
-//   document.body.appendChild(btn); 
+// for (var i = 0; i < 5; i++) {
+//   var btn = document.createElement('button');
+//   btn.appendChild(document.createTextNode('Button ' + i));
+//   btn.addEventListener('click', function(){
+//     console.log(i);
+//   });
+//   document.body.appendChild(btn);
 // }
 
 // var d = {};
-// [ 'zebra', 'horse' ].forEach(function(k) { 
-//   d[k] = 1; 
+// [ 'zebra', 'horse' ].forEach(function(k) {
+//   d[k] = 1;
 // });
 // console.log({d});
 
@@ -740,7 +769,7 @@ const sum = (...rest) => {
 // var arr3 = "jones".split(''); //[j,o,n,e,s]
 // console.log({ arr1, arr2, arr3 })
 // arr2.push(arr3); //[n, h, o, j, j, o , n, e, s];
-// console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1)); // 5 // [n] 
+// console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1)); // 5 // [n]
 // console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1)); //5 // [s]
 
 // console.log(1 + "2" + "2"); //122
@@ -750,15 +779,15 @@ const sum = (...rest) => {
 // console.log( "A" - "B" + "2"); //NaN2
 // console.log( "A" - "B" + 2); // NaN
 
-// var list = [1,2,3,4,5,6,7,8,9] // ||  readHugeList(); 
-// var nextListItem = function() { 
-//   var item = list.pop(); 
+// var list = [1,2,3,4,5,6,7,8,9] // ||  readHugeList();
+// var nextListItem = function() {
+//   var item = list.pop();
 //   console.log({item})
-//   if (item) { 
+//   if (item) {
 //     // console.log({item})
-//     // process the list item... 
-//     nextListItem(); 
-//   } 
+//     // process the list item...
+//     nextListItem();
+//   }
 // };
 // console.log(nextListItem());
 
@@ -767,11 +796,11 @@ const sum = (...rest) => {
 // console.log("0 && 1 = "+(0 && 1));
 // console.log("1 && 2 = "+(1 && 2));
 
-// What will be the output when the following code is executed? Explain. console.log(false == '0') console.log(false === '0') 
+// What will be the output when the following code is executed? Explain. console.log(false == '0') console.log(false === '0')
 
-// var a={}, b={key:'b'}, c={key:'c'}; 
-// a[b]=123; 
-// a[c]=456; 
+// var a={}, b={key:'b'}, c={key:'c'};
+// a[b]=123;
+// a[c]=456;
 // console.log(a[b]);
 
 // console.log((function f(n){
@@ -780,19 +809,19 @@ const sum = (...rest) => {
 
 // // 10 * 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9
 
-// (function(x) { 
-//   return (function(y) { 
+// (function(x) {
+//   return (function(y) {
 //     console.log(x);
-//   })(2) 
+//   })(2)
 // })(1);
 
-// var hero = { 
-//   _name: 'John Doe', 
-//   getSecretIdentity: function (){ 
-//     return this._name; 
-//   } 
-// }; 
-// var stoleSecretIdentity = hero.getSecretIdentity; 
+// var hero = {
+//   _name: 'John Doe',
+//   getSecretIdentity: function (){
+//     return this._name;
+//   }
+// };
+// var stoleSecretIdentity = hero.getSecretIdentity;
 // console.log(stoleSecretIdentity()); // undefined
 // console.log(hero.getSecretIdentity()); // John Doe
 
@@ -801,176 +830,179 @@ const sum = (...rest) => {
 // a DOM element
 // a callback function (that takes a DOM element as its argument)
 
-// var length = 10; 
-// function fn() { 
-//   console.log(this.length); 
-// } 
-// var obj = { 
-//   length: 5, 
-//   method: function(fn) { 
+// var length = 10;
+// function fn() {
+//   console.log(this.length);
+// }
+// var obj = {
+//   length: 5,
+//   method: function(fn) {
 //     fn();
-//     arguments[0](); 
-//   } 
-// }; 
+//     arguments[0]();
+//   }
+// };
 // obj.method(fn, 1);
 
-// (function () { 
-//   try { 
-//     throw new Error(); 
-//   } 
-//   catch (x) { 
-//     var x = 1, y = 2; 
-//     console.log(x); 
-//   } 
+// (function () {
+//   try {
+//     throw new Error();
+//   }
+//   catch (x) {
+//     var x = 1, y = 2;
+//     console.log(x);
+//   }
 //   console.log(x);
 //   console.log(y);
 // })();
 
-// var x = 21; 
-// var girl = function () { 
-//   console.log(x); 
+// var x = 21;
+// var girl = function () {
+//   console.log(x);
 //   var x = 20;
-// }; 
+// };
 // girl ();
 
-// for (let i = 0; i < 5; i++) { 
-//   setTimeout(function() { 
-//     console.log(i); 
-//   }, i * 1000 ); 
+// for (let i = 0; i < 5; i++) {
+//   setTimeout(function() {
+//     console.log(i);
+//   }, i * 1000 );
 // }
 
-// for (var i = 0; i < 5; i++) { 
-//   setTimeout(function() { 
-//     console.log(i); 
-//   }, i * 1000 ); 
+// for (var i = 0; i < 5; i++) {
+//   setTimeout(function() {
+//     console.log(i);
+//   }, i * 1000 );
 // }
 
-// var b = 1; 
-// function outer(){ 
+// var b = 1;
+// function outer(){
 //   var b = 2;
 //   function inner(){
-//     console.log({b}) 
+//     console.log({b})
 //     b++;
-//     console.log({b}); 
-//     var b = 3; 
-//     console.log(b) 
-//   } 
-//   inner(); 
-// } 
+//     console.log({b});
+//     var b = 3;
+//     console.log(b)
+//   }
+//   inner();
+// }
 // outer();
 
-// for (var i = 0; i < 5; i++) { 
+// for (var i = 0; i < 5; i++) {
 //   function sum() {
 //     var j=i;
 //     setTimeout(function() {
 //       console.log(j+1)
-//     },10);    
+//     },10);
 //   }
 // sum()
 // }
 
-const reverseNumber = num => {
-  return num.toString().split('').reverse().join().replaceAll(',','');
-}
+const reverseNumber = (num) => {
+  return num.toString().split("").reverse().join().replaceAll(",", "");
+};
 
 // 2. Write a JavaScript function that checks whether a passed string is palindrome or not? Go to the editor
 // A palindrome is word, phrase, or sequence that reads the same backward as forward, e.g., madam or nurses run.
 
-const palindrome = word => {
+const palindrome = (word) => {
   if (typeof word !== "string") return "Please enter a string";
-  const reverseWord = word.split('').reverse().join().replaceAll(',', '');
+  const reverseWord = word.split("").reverse().join().replaceAll(",", "");
   if (word === reverseWord) return "palindrome Word";
   return "Not a palindrome Word";
-}
+};
 
 // 4. Write a JavaScript function that returns a passed string with letters in alphabetical order. Go to the editor
 // Example string : 'webmaster'
 // Expected Output : 'abeemrstw'
 
-const stringAlphabeticOrder = str => {
-  return str.split('').sort().join().replaceAll(',', '');
-}
+const stringAlphabeticOrder = (str) => {
+  return str.split("").sort().join().replaceAll(",", "");
+};
 
 // 5. Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word of the string in upper case. Go to the editor
 // Example string : 'the quick brown fox'
 // Expected Output : 'The Quick Brown Fox '
 
-const convertFirstChar = str => {
-  const arr = str.split(' ');
-  return arr.map(char => {
-    const firstChar = char.charAt(0).toUpperCase();
-    return `${firstChar}${char.substring(1)}` 
-  }).join().replaceAll(',', ' ');
-}
+const convertFirstChar = (str) => {
+  const arr = str.split(" ");
+  return arr
+    .map((char) => {
+      const firstChar = char.charAt(0).toUpperCase();
+      return `${firstChar}${char.substring(1)}`;
+    })
+    .join()
+    .replaceAll(",", " ");
+};
 
 // 6. Write a JavaScript function that accepts a string as a parameter and find the longest word within the string. Go to the editor
 // Example string : 'Web Development Tutorial'
 // Expected Output : 'Development'
 
-const longestChar = str => {
-  const arr = str.split(' ');
+const longestChar = (str) => {
+  const arr = str.split(" ");
   let logestCharacter = "";
-  arr.forEach(char => {
+  arr.forEach((char) => {
     if (char.length >= logestCharacter.length) {
       logestCharacter = char;
     }
   });
   return logestCharacter;
-}
+};
 
-const generateRandomPassword = (str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789") => {
+const generateRandomPassword = (
+  str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+) => {
   const random = Math.floor(Math.random() * 10);
   const randomNumber = random < 5 ? 5 : random;
   const length = str.length;
-  const arr = str.split('');
+  const arr = str.split("");
   const pass = [];
-  for (let i = 0; i < randomNumber; i ++) {
+  for (let i = 0; i < randomNumber; i++) {
     const randomNumber = Math.floor(Math.random() * length);
     pass.push(arr[randomNumber]);
   }
-  return pass.join().replaceAll(',','');
-}
+  return pass.join().replaceAll(",", "");
+};
 
 const countCharacter = (str, char) => {
   let obj = {};
   for (let i = 0; i < str.length; i++) {
     if (obj[str.charAt(i)]) {
       obj[str.charAt(i)] = obj[str.charAt(i)] + 1;
-    } 
-    else {
+    } else {
       obj[str.charAt(i)] = 1;
     }
   }
   return obj[char] || 0;
-}
+};
 
-const notRepeatedCharacters = str => {
+const notRepeatedCharacters = (str) => {
   const obj = {};
   for (let i = 0; i < str.length; i++) {
     if (obj[str.charAt(i)]) {
       obj[str.charAt(i)] = obj[str.charAt(i)] + 1;
-    } 
-    else {
+    } else {
       obj[str.charAt(i)] = 1;
     }
   }
   const notRepeatedCharacters = {};
   for (let key in obj) {
     if (obj[key] === 1) {
-      notRepeatedCharacters[key] = 1
-    } 
+      notRepeatedCharacters[key] = 1;
+    }
   }
   return notRepeatedCharacters;
-}
+};
 // Solution 1
-const bubbleSort = (arr = [1,4,3,2, 23,23231,23232323]) => {
+const bubbleSort = (arr = [1, 4, 3, 2, 23, 23231, 23232323]) => {
   const sort = [];
-  for(let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     const number = arr[i];
     sort[number] = arr[i];
   }
-  return sort.filter(val => val);
-}
+  return sort.filter((val) => val);
+};
 
 const newArr = [];
 const multipleOfArray = (arr = [1, 2, 3, 4, 5], start = 1) => {
@@ -984,12 +1016,8 @@ const multipleOfArray = (arr = [1, 2, 3, 4, 5], start = 1) => {
   if (newArr.length !== arr.length) multiple(arr, (start = start + 1));
 };
 
-const bubbleSort1 = (originalArr = [1,4,3,2]) => {
+const bubbleSort1 = (originalArr = [1, 4, 3, 2]) => {
   const arr = originalArr.slice();
-  for (let i = 0; i < originalArr.length; i ++) {
-
-  }
+  for (let i = 0; i < originalArr.length; i++) {}
   return arr;
-}
-
-
+};
