@@ -304,3 +304,68 @@ const find = (a) => {
   }
   console.log(arr.filter(val => val), usman);
 };
+
+function timeConversion(s = "07:05:45PM") {
+    let [hours, mins, seconds] = s.split(':');
+    let spliting = seconds.split('');
+    let timeZone = "";
+    seconds = `${spliting[0]}${spliting[1]}`;
+    timeZone = `${spliting[2]}${spliting[3]}`;
+    if (hours == 12) {
+      hours = '00';
+    }
+    if (timeZone == "PM") {
+      hours = parseInt(hours, 10) + 12;
+    }
+    console.log(`${hours}:${mins}:${seconds}`);
+  }
+
+  const findNumber = (arr, num) => {
+    let counter = 0;
+    for(let i=0; i<arr.length; i++) {
+      const value = arr[i];
+      if (value === num) {
+        counter+=1
+      }
+    }
+    return counter;
+  }
+  
+  function lonelyinteger(arr) {
+    // Write your code here // unique elements
+    const noDuplicate = [];
+    const length = arr.length;
+    for(let i=0; i < length; i++) {
+      const current = arr[i];
+      const find = findNumber(arr, current);
+      if (find === 1) {
+        noDuplicate.push(current);
+      } 
+    }
+    console.log(noDuplicate)
+  }
+
+
+function diagonalDifference(arr) {
+    // Write your code here
+    let left=0,right=0;
+    for(let i=0; i<arr.length; i++) {
+      const singleArr = arr[i];
+      for(let j=0; j <= singleArr.length; j++) {
+        const value = singleArr[j];
+        const index = (singleArr.length - 1) - i;
+        const value2 = singleArr[index];
+        if (i === j) {
+          left+= value;
+          right+=value2;
+        }
+      }
+    }
+    return Math.abs(left - right);
+  }
+  const diagnolArr = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [9, 8, 9],
+  ]
+//   console.log(diagonalDifference(diagnolArr));

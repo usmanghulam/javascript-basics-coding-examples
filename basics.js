@@ -1021,3 +1021,103 @@ const bubbleSort1 = (originalArr = [1, 4, 3, 2]) => {
   for (let i = 0; i < originalArr.length; i++) {}
   return arr;
 };
+
+const nums = [];
+const primeNumbers = (n = 6) => {
+  let isPrime = true;
+  for (let i = 2; i <= n; i++) {
+    if (i !== n && n % i === 0) {
+      if (isPrime) {
+        isPrime = false;
+      }
+    }
+    if (isPrime) {
+      if (nums.indexOf(n) < 0) {
+        nums.push(n);
+      }
+    }
+  }
+  if (n !== 1) {
+    let number = n - 1;
+    primeNumbers(number);
+  }
+};
+// primeNumbers(6);
+// console.log(nums);
+
+function gridChallenge(grid) {
+  // Write your code here
+  const rows = {};
+  const columns = {};
+  grid.forEach((g, i) => {
+    const val = g.split("").sort().join("");
+    rows[i] = val;
+  });
+  // console.log(rows)
+  Object.values(rows).forEach((val) => {
+    for (let i = 0; i < val.length; i++) {
+      if (columns[i]) columns[i] += val.charAt(i);
+      else columns[i] = val.charAt(i);
+    }
+  });
+  const newColums = { ...columns };
+  let valuesReturn = true;
+  Object.values(columns).forEach((val, i) => {
+    if (val !== newColums[i].split("").sort().join("")) {
+      if (valuesReturn) valuesReturn = false;
+    }
+  });
+  return valuesReturn ? "YES" : "NO";
+}
+
+
+function isBalanced(s) {
+  // Write your code here
+  const arr = s.split("");
+  const starting = ["[", "{", "("];
+  const ending = ["]", "}", ")"];
+  const start = [],
+    end = [];
+  let counter = 0;
+  let isBreak = false;
+  for (let i = 0; i < arr.length; i++) {
+    if (isBreak) break;
+    const val = arr[i];
+    if (["[", "{", "("].includes(val)) {
+      if (counter > 0) {
+        isBreak = true;
+        break;
+      }
+      start.push(val);
+    } else counter += 1;
+  }
+  // means no sequence;
+  if (isBreak) return "NO";
+  // finding closing brackets
+  let counter2 = 0, isBreak2 = false;
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (isBreak2) break;
+    const val = arr[i];
+    if (["]", "}", ")"].includes(val)) {
+      if (counter2 > 0) {
+        isBreak2 = true;
+        break;
+      }
+      end.push(val);
+    } else counter2 += 1;
+  }
+  if (isBreak2) return "NO";
+  const length = Math.max(start.length, end.length);
+  let finalize = 'YES';
+  for(let i=0; i<length;i++) {
+    const first = start[i];
+    const last = end[i];
+    const final = `${first}${last}`;
+    const joint = ['{}', '[]', '()'];
+    if (!joint.includes(final)) {
+      finalize = 'NO';
+    }
+  }
+  return finalize;
+}
+console.log(isBalanced("{{([])}}"));
