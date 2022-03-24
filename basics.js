@@ -1120,4 +1120,106 @@ function isBalanced(s) {
   }
   return finalize;
 }
-console.log(isBalanced("{{([])}}"));
+
+const secondMaxOneIteration = (arr) => {
+  let max = 0;
+  let secondMax = 0;
+  for (let i = 0; i < arr.length; i++) {
+    const curr = arr[i];
+    if (curr > max) {
+      max = curr;
+    }
+    const prev = arr[i - 1];
+    if (prev) {
+      if (prev <= max && prev >= secondMax) {
+        secondMax = prev;
+      }
+    }
+  }
+  console.log({ max, secondMax })
+};
+
+const nonRepeatedElementOfString = (str) => {
+  const obj = {};
+  const arr = str.split('');
+  let nonRepeatedElements = "";
+  arr.forEach(val => {
+    if (obj[val]) {
+      obj[val] = obj[val] + 1;
+    }
+    else {
+      obj[val] = 1;
+    }
+  });
+  Object.keys(obj).forEach(key => {
+    if (obj[key] === 1) nonRepeatedElements+=key;
+  })
+  return nonRepeatedElements
+};
+
+const recursiveFibonacciSeries = (arr, n) => {
+  let length = arr.length;
+  const curr = arr[length - 1];
+  const prev = arr[length - 2];
+  const sum = curr + prev;
+  if (length !== n) {
+    arr.push(sum);
+    recursiveFibonacciSeries(arr, 20);
+  }
+}
+
+const selectionSort = (arr) => {
+  const length = arr.length;
+  let isRepeat = true;
+  let breakIterationIfZero = 0;
+
+  while (isRepeat) {
+    breakIterationIfZero = 0;
+    for (let i = 0; i < length; i++) {
+      const curr = arr[i];
+      const next = arr[i + 1];
+      if (curr < next) {
+        arr[i] = next;
+        arr[i + 1] = curr;
+        breakIterationIfZero += 1;
+      }
+    }
+    if (breakIterationIfZero === 0) {
+      isRepeat = false;
+    }
+  }
+
+  console.log(arr);
+};
+
+const checkUpperLowerCaseLetter = (l) => {
+  if (l.toUpperCase() === l) {
+    return true;
+  }
+  return false;
+};
+function caesarCipher(s, k) {
+  // Write your code here
+  const arr = s.split("");
+  let caesarChipherString = "";
+  var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+  arr.forEach((char) => {
+      let index = alphabeticCharacters.indexOf(char.toLowerCase()) + k;
+      const length = alphabeticCharacters.length;
+      if (index > length - 1) {
+          while (index > (length - 1)) {
+              index = index - length;
+          }
+      }
+      if (format.test(char) || Boolean(Number(char)) || char === "`") {
+          caesarChipherString += char;
+      } else {
+          if (checkUpperLowerCaseLetter(char)) {
+              caesarChipherString += `${alphabeticCharacters[index].toUpperCase()}`;
+          } else {
+              caesarChipherString += `${alphabeticCharacters[index]}`;
+          }
+      }
+  });
+  return caesarChipherString;
+}
