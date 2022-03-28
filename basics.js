@@ -1070,7 +1070,6 @@ function gridChallenge(grid) {
   return valuesReturn ? "YES" : "NO";
 }
 
-
 function isBalanced(s) {
   // Write your code here
   const arr = s.split("");
@@ -1094,7 +1093,8 @@ function isBalanced(s) {
   // means no sequence;
   if (isBreak) return "NO";
   // finding closing brackets
-  let counter2 = 0, isBreak2 = false;
+  let counter2 = 0,
+    isBreak2 = false;
   for (let i = arr.length - 1; i >= 0; i--) {
     if (isBreak2) break;
     const val = arr[i];
@@ -1108,14 +1108,14 @@ function isBalanced(s) {
   }
   if (isBreak2) return "NO";
   const length = Math.max(start.length, end.length);
-  let finalize = 'YES';
-  for(let i=0; i<length;i++) {
+  let finalize = "YES";
+  for (let i = 0; i < length; i++) {
     const first = start[i];
     const last = end[i];
     const final = `${first}${last}`;
-    const joint = ['{}', '[]', '()'];
+    const joint = ["{}", "[]", "()"];
     if (!joint.includes(final)) {
-      finalize = 'NO';
+      finalize = "NO";
     }
   }
   return finalize;
@@ -1136,25 +1136,24 @@ const secondMaxOneIteration = (arr) => {
       }
     }
   }
-  console.log({ max, secondMax })
+  console.log({ max, secondMax });
 };
 
 const nonRepeatedElementOfString = (str) => {
   const obj = {};
-  const arr = str.split('');
+  const arr = str.split("");
   let nonRepeatedElements = "";
-  arr.forEach(val => {
+  arr.forEach((val) => {
     if (obj[val]) {
       obj[val] = obj[val] + 1;
-    }
-    else {
+    } else {
       obj[val] = 1;
     }
   });
-  Object.keys(obj).forEach(key => {
-    if (obj[key] === 1) nonRepeatedElements+=key;
-  })
-  return nonRepeatedElements
+  Object.keys(obj).forEach((key) => {
+    if (obj[key] === 1) nonRepeatedElements += key;
+  });
+  return nonRepeatedElements;
 };
 
 const recursiveFibonacciSeries = (arr, n) => {
@@ -1166,7 +1165,7 @@ const recursiveFibonacciSeries = (arr, n) => {
     arr.push(sum);
     recursiveFibonacciSeries(arr, 20);
   }
-}
+};
 
 const selectionSort = (arr) => {
   const length = arr.length;
@@ -1204,22 +1203,22 @@ function caesarCipher(s, k) {
   let caesarChipherString = "";
   var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
   arr.forEach((char) => {
-      let index = alphabeticCharacters.indexOf(char.toLowerCase()) + k;
-      const length = alphabeticCharacters.length;
-      if (index > length - 1) {
-          while (index > (length - 1)) {
-              index = index - length;
-          }
+    let index = alphabeticCharacters.indexOf(char.toLowerCase()) + k;
+    const length = alphabeticCharacters.length;
+    if (index > length - 1) {
+      while (index > length - 1) {
+        index = index - length;
       }
-      if (format.test(char) || Boolean(Number(char)) || char === "`") {
-          caesarChipherString += char;
+    }
+    if (format.test(char) || Boolean(Number(char)) || char === "`") {
+      caesarChipherString += char;
+    } else {
+      if (checkUpperLowerCaseLetter(char)) {
+        caesarChipherString += `${alphabeticCharacters[index].toUpperCase()}`;
       } else {
-          if (checkUpperLowerCaseLetter(char)) {
-              caesarChipherString += `${alphabeticCharacters[index].toUpperCase()}`;
-          } else {
-              caesarChipherString += `${alphabeticCharacters[index]}`;
-          }
+        caesarChipherString += `${alphabeticCharacters[index]}`;
       }
+    }
   });
   return caesarChipherString;
 }
